@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>X · O · X</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <header>
+        <p class="eyebrow">Two players, one screen</p>
+        <h1>X · O · X</h1>
+        <p class="lede">Take turns. Three in a row wins.</p>
+      </header>
+
+      <section class="scores" aria-label="Score">
+        <p class="score score-x">
+          <span>X</span>
+          <strong id="score-x">0</strong>
+        </p>
+        <p class="score score-draw">
+          <span>Draws</span>
+          <strong id="score-draw">0</strong>
+        </p>
+        <p class="score score-o">
+          <span>O</span>
+          <strong id="score-o">0</strong>
+        </p>
+      </section>
+
+      <p id="status" class="status" aria-live="polite">X’s turn</p>
+
+      <div id="board" class="board" role="group" aria-label="Game board"></div>
+
+      <div class="actions">
+        <button id="again" type="button">Play again</button>
+        <button id="clear-scores" type="button" class="ghost">Clear scores</button>
+      </div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
