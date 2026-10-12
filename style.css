@@ -1,0 +1,202 @@
+:root {
+  --ink: #241c15;
+  --muted: #6d6256;
+  --paper: #f4efe4;
+  --board: #2a231c;
+  --cell: #fffdf8;
+  --x: #c2410c;
+  --o: #0f5c6b;
+  --win: #e4b423;
+  --line: rgba(36, 28, 21, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% 0%, #fffaf2 0%, var(--paper) 58%);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.card {
+  width: min(420px, 100%);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 2px 0;
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.score {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.score span {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.score strong {
+  display: block;
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.score-x strong {
+  color: var(--x);
+}
+
+.score-o strong {
+  color: var(--o);
+}
+
+.status {
+  min-height: 1.6em;
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.status.win {
+  color: var(--x);
+  font-weight: 650;
+}
+
+.status.draw {
+  color: var(--muted);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: min(100%, 320px);
+  margin-inline: auto;
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--board);
+  box-shadow: 0 18px 40px rgba(36, 28, 21, 0.16);
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 14px;
+  background: var(--cell);
+  color: var(--ink);
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+  font-size: clamp(2.5rem, 10vw, 3.6rem);
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 120ms ease, background 160ms ease;
+}
+
+.cell:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.cell:focus-visible {
+  outline: 3px solid #1d4e89;
+  outline-offset: 2px;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell[data-mark="X"] {
+  color: var(--x);
+}
+
+.cell[data-mark="O"] {
+  color: var(--o);
+}
+
+.cell.win {
+  background: #fff4c8;
+  box-shadow: inset 0 0 0 3px var(--win);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+#again {
+  background: var(--ink);
+  color: #fffaf2;
+}
+
+#again:hover {
+  background: #3a3128;
+}
+
+#again:focus-visible,
+.ghost:focus-visible {
+  outline: 3px solid #1d4e89;
+  outline-offset: 2px;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--muted);
+}
+
+.ghost:hover {
+  color: var(--ink);
+}
